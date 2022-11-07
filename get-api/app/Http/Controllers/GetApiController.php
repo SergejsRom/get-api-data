@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\GetApi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class GetApiController extends Controller
 {
@@ -12,6 +13,11 @@ class GetApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public static function GetApiData () {
+        $result = Http::get("https://pokeapi.co/api/v2/pokemon/");
+        return $result;
+    }
+
     public function index()
     {
         //
